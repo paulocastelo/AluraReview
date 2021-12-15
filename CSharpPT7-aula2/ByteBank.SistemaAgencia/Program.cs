@@ -5,12 +5,69 @@ using System.Text;
 using System.Threading.Tasks;
 using ByteBank.Modelos;
 using ByteBank.Modelos.Funcionarios;
+using ByteBank.SistemaAgencia.Extensoes;
 
 namespace ByteBank.SistemaAgencia
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            var listaDeContas = new List<ContaCorrente>() {
+                new ContaCorrente(898,99759),
+                new ContaCorrente(242,23424),
+                new ContaCorrente(677,23424),
+                new ContaCorrente(242,23423),
+                new ContaCorrente(242,23423),
+                new ContaCorrente(777,24234)
+            };
+            listaDeContas.Sort();
+            foreach (ContaCorrente conta in listaDeContas)
+            {
+                Console.WriteLine(conta.Agencia + " - " + conta.Numero);
+            }
+            Console.ReadLine();
+
+        }
+        static void TestaSort()
+        {
+            //var teste = 17; //EVITAR ESTE TIPO DE PROCEDIMENTO
+            //var conta = new ContaCorrente(213, 34535);
+            //var gerenciador = new GerenciadorBonificacao();
+            //var gerenciadores = new List<GerenciadorBonificacao>();
+            var listaDeNomes = new List<string>(){
+                "Jimmy", "Eric", "Yngwie", "Kiko", "Steve", "Joe"
+            };
+            listaDeNomes.Sort();
+            foreach (var nome in listaDeNomes)
+            {
+                Console.WriteLine(nome);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("-+=================================+-");
+            var idades = new List<int>();
+            idades.Add(5);
+            idades.Add(2);
+            idades.Add(1);
+            idades.Add(4);
+            idades.Add(56);
+            idades.AdicionarVarios(5, 10, 50);
+            idades.Sort();
+
+            //ListExtensoes.AdicionarVarios(idades, 12, 1231, 31, 41);
+            //idades.AdicionarVarios<int>(234, 099, 898, 87);
+
+
+            int idadeSoma = 0;
+            for (int i = 0; i < idades.Count; i++)
+            {
+                int idadeAtual = idades[i];
+                Console.WriteLine(idadeAtual);
+            }
+            Console.ReadLine();
+        }
+        static void TestaListaDeArray()
         {
             Lista<int> idades = new Lista<int>();
             idades.Adicionar(5);
